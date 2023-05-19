@@ -1,0 +1,17 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+.main {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+.section-wrapper {
+  width: 100%;
+  height: calc(100vh - 83.5px);
+  overflow: auto;
+}

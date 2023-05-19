@@ -1,0 +1,26 @@
+.section {
+    padding: 32px;
+}
+.section__title {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 32px;
+    @media screen and (max-width: 1024px) {
+        font-size: 20px;
+    }
+}
+.section__subtitle {
+    margin-top: 16px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    @media screen and (max-width: 1024px) {
+        font-size: 16px;
+    }
+}
+.section__content {
+    margin-top: 24px;
+}
+.section__text {
+    font-weight: 500;
+}
