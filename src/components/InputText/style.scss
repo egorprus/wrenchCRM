@@ -16,7 +16,10 @@
     }
     &__error {
         border-color: red;
-    } 
+    }
+    &:focus {
+        box-shadow: 0px 0px 5px rgba(2, 0, 96, 1);
+    }
     @media screen and (max-width: 1024px) {
         padding: 10px 15px;
         font-size: 14px;
