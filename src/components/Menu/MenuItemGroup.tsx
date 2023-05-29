@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { MenuItem } from "./MenuItem";
 import triangle from '../../assets/triangle.svg';
 import { MenuText } from "./interface";
-import { ImageWrap } from "../ImageWrap/ImageWrap";
 
 interface MenuItemGroupProps {
     data: MenuText,
@@ -12,7 +10,7 @@ interface MenuItemGroupProps {
 }
 
 export const MenuItemGroup = ({data, currentIndex, setCurrentIndex}: MenuItemGroupProps) => {
-    const [showGroup, setShowGroup] = useState<boolean>(true);
+    const [showGroup, setShowGroup] = useState<boolean>(false);
 
     const handleClick = () => {
         setShowGroup(showGroup => !showGroup);

@@ -31,7 +31,6 @@ export const Address = () => {
         })
             .then(response => response.json())
             .then(result => {
-                console.log(result.suggestions)
                 setResultList(result.suggestions)})
             .catch(error => console.log("error", error));
     }
