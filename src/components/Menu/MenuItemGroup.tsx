@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { MenuItem } from "./MenuItem";
-import triangle from '../../assets/triangle.svg';
 import { MenuText } from "./interface";
+import { MenuButtonContent } from "./MenuButtonContent";
 
 interface MenuItemGroupProps {
     data: MenuText,
-    setCurrentIndex: React.Dispatch<React.SetStateAction<number>>,
+    updateIndex: (index: number) => void,
     currentIndex: number
 }
 
-export const MenuItemGroup = ({data, currentIndex, setCurrentIndex}: MenuItemGroupProps) => {
+export const MenuItemGroup = ({data, currentIndex, updateIndex}: MenuItemGroupProps) => {
     const [showGroup, setShowGroup] = useState<boolean>(false);
 
     const handleClick = () => {
@@ -19,23 +19,13 @@ export const MenuItemGroup = ({data, currentIndex, setCurrentIndex}: MenuItemGro
     return (
         <li className={`menu__item group-wrapper ${showGroup && 'menu__item--open'}`}>
             <button className="menu__link" onClick={handleClick}>
-                <div className="menu__link--left">
-                    <div className="menu__icon">
-                        <img src={data.img} alt="menu item icon" />
-                    </div>
-                    <h2 className="menu__text">
-                        {data.text}
-                    </h2>
-                </div>
-                <img className="menu__item-icon" src={triangle} alt="status open group" />
+                <MenuButtonContent data={data} />
             </button>
-            {data.children &&
-                <ul className="group">
-                    {data.children.map(item =>
-                        <MenuItem data={item} key={item.id} isActive={item.id === currentIndex} setCurrentIndex={setCurrentIndex} />
-                    )}
-                </ul>
-            }
+            <ul className="group">
+                {data.children?.map(item =>
+                    <MenuItem data={item} key={item.id} isActive={item.id === currentIndex} updateIndex={updateIndex} />
+                )}
+            </ul>
         </li>
     )
 };

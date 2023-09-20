@@ -9,5 +9,5 @@ export interface MenuText {
 export interface MenuItemProps {
     data: MenuText,
     isActive: boolean,
-    setCurrentIndex: React.Dispatch<React.SetStateAction<number>>
+    updateIndex: (index: number) => void,
 };

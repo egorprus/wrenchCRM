@@ -6,9 +6,9 @@ import { menuList } from "./menuList";
 
 interface MenuProps {
     currentIndex: number,
-    setCurrentIndex: React.Dispatch<React.SetStateAction<number>>
+    updateIndex: (index: number) => void
 }
-export const Menu = ({currentIndex, setCurrentIndex}: MenuProps) => {
+export const Menu = ({currentIndex, updateIndex}: MenuProps) => {
 
     return (
         <div className="menu-container">
@@ -17,11 +17,11 @@ export const Menu = ({currentIndex, setCurrentIndex}: MenuProps) => {
             </h2>
             <nav className="menu">
                 <ul className="menu__list">
-                    {menuList.map(item => {
-                        return item.children ?
-                            <MenuItemGroup data={item} currentIndex={currentIndex} key={item.id} setCurrentIndex={setCurrentIndex} />
-                            : <MenuItem data={item} key={item.id} isActive={item.id === currentIndex} setCurrentIndex={setCurrentIndex} />
-                    })}
+                    {menuList.map(item => (
+                        item.children ?
+                            <MenuItemGroup data={item} currentIndex={currentIndex} key={item.id} updateIndex={updateIndex} />
+                            : <MenuItem data={item} key={item.id} isActive={item.id === currentIndex} updateIndex={updateIndex} />
+                    ))}
                 </ul>
             </nav>
         </div>

@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import './style.scss';
 import '../style.scss';
 import { FieldValues, useForm } from "react-hook-form";
-import { InputText } from "../../InputText/InputText";
-import { SearchButton } from "../../SearchButton/SearchButton";
+import { InputText } from "../../components/InputText/InputText";
+import { SearchButton } from "../../components/SearchButton/SearchButton";
 import { AddressItem } from "./AddressItem";
-import { minLength, required } from "../../../utils/validate";
+import { minLength, required } from "../../utils/validate";
+import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
+import { NotResult } from "../../components/NotResult/NotResult";
 
 interface requestData {
     data: {
@@ -36,12 +38,7 @@ export const Address = () => {
     }
     return (
         <section className="section">
-            <h1 className="section__title">
-                Поиск адресов
-            </h1>
-            <p className="section__subtitle">
-                Введите интересующий вас адрес
-            </p>
+            <SectionTitle text='Поиск адресов' subtitle="Введите интересующий вас адрес" />
             <div className="section__content">
                 <form className="form" onSubmit={handleSubmit(onSubmit)}>
                     <InputText
@@ -60,7 +57,8 @@ export const Address = () => {
                                 <AddressItem key={index} text={item.unrestricted_value} />
                             ))}
                         </ul>
-                    </article> : ''
+                    </article>
+                    : <SectionTitle text="Not found result" />
                 }
             </div>
         </section>
